@@ -52,7 +52,7 @@ st.title('Flipkart Feature Based Review Extractor & Question Answering')
 st.markdown("""
             ## What Can You do with this project 
             - you can filter any reviews based on specific feature of product. for example: if product is a mobile then you can filter reviews talking about camera or battery or any other specifications.
-            - Instead of reading 1000 of reviews and getting info about particular feature, you can pass all reviews to this project and get a one line sentence(talking about searched review) extracted from each reviews metioning that feature.
+            - Instead of reading 500 of reviews and getting info about particular feature, you can pass all reviews to this project and get a one line sentence(talking about searched review) extracted from each reviews metioning that feature.
             - you can get a user sentiment review score for individual feature
             - You can ask any querry and if it is somewhere mentioned in any review then our model will show closest matching sentence to related querry. 
             """)
@@ -66,7 +66,7 @@ st.subheader("Enter Product's All review Page copied link")
 base = st.text_input('Enter Review link')
 
 st.markdown("""
-             Model is scrapping 400 review pages to collect 1000+ User reviews.
+             Model is scrapping 400 review pages to collect 500+ User reviews.
             - Web scrapping of 400+ pages takes time (approx 3-5min).
         """)
 @st.cache(allow_output_mutation=True)
@@ -99,7 +99,7 @@ def scraper(base):
         'Title': titles,
         'Review':review})
         data_e=data_e.append(data,ignore_index=True)
-        if data_e.shape[0] > 1000:
+        if data_e.shape[0] > 500:
             break
     df = data_e
     for i in range(df.shape[0]):
